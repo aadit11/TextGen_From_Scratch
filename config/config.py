@@ -1,0 +1,4 @@
+config = {
+    "epochs": 10,
+    "batch_size": 32,
+}
