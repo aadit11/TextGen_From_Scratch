@@ -1,0 +1,42 @@
+transformer-text-generation/
+│
+├── data/                       # Store dataset files and preprocessing scripts
+│   ├── raw/                    # Raw dataset files
+│   │   └── your_dataset.txt    # Example raw text dataset
+│   ├── processed/              # Processed tokenized data
+│   │   └── train_data.pt       # Tokenized and preprocessed training data
+│   └── preprocessing.py        # Preprocessing and tokenization script
+│
+├── model/                      # Model architecture and components
+│   ├── __init__.py             # Makes this folder a module
+│   ├── transformer.py          # Full Transformer model (Encoder + Decoder)
+│   ├── layers.py               # Multi-head attention, feed-forward layers
+│   ├── positional_encoding.py  # Positional encoding implementation
+│   └── attention.py            # Scaled dot-product attention
+│
+├── training/                   # Scripts related to training the model
+│   ├── __init__.py             # Makes this folder a module
+│   ├── train.py                # Main script to train the model
+│   └── optimizer.py            # Custom optimizer and learning rate scheduler
+│
+├── generation/                 # Scripts related to text generation
+│   ├── __init__.py             # Makes this folder a module
+│   └── generate.py             # Script to generate text from the trained model
+│
+├── utils/                      # Utility functions for the project
+│   ├── __init__.py             # Makes this folder a module
+│   └── tokenizer.py            # Tokenizer and vocabulary management
+│
+├── config/                     # Configuration files and hyperparameters
+│   └── config.py               # Hyperparameters and settings for training
+│
+├── logs/                       # Log files, model checkpoints
+│   ├── train_log.txt           # Logs from training process
+│   └── checkpoints/            # Saved model checkpoints
+│
+├── notebooks/                  # Jupyter Notebooks for experimentation
+│   └── exploration.ipynb       # Example notebook for data exploration
+│
+├── requirements.txt            # Project dependencies
+├── README.md                   # Project documentation
+└── main.py                     # Entry point for training and generation
