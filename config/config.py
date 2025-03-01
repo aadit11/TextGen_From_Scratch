@@ -1,5 +1,5 @@
 config = {
-    'epochs': 10,
+    'epochs': 20,
     'batch_size': 32,
     'lr': 0.001,
     'd_model': 512,
@@ -8,4 +8,5 @@ config = {
     'n_layers': 6,
     'vocab_size': 5000,   
 }
+
 
