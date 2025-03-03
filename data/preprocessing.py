@@ -1,5 +1,4 @@
 import torch
-from collections import Counter
 from utils.tokenizer import build_vocab, tokenize
 
 def preprocess_text(input_file, output_file, vocab_size=5000, seq_length=64):
