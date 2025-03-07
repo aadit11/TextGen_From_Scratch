@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import math
 from model.layers import MultiHeadAttention
 from model.positional_encoding import PositionalEncoding
 from model.attention import ScaledDotProductAttention
