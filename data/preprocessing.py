@@ -11,6 +11,7 @@ def preprocess_text(input_file, output_file, vocab_size=5000, seq_length=64):
 
     data = [tokenized_text[i:i+seq_length] for i in range(0, len(tokenized_text) - seq_length, seq_length)]
     
+    # Create directory if it doesn't exist
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
     torch.save((data, vocab), output_file)
