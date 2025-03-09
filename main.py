@@ -1,10 +1,20 @@
 import torch
+import os
 from training.train import train_model
 from generation.generate import generate_text
 from config.config import config
 from model.transformer import Transformer
+from data.preprocessing import preprocess_text
 
 def main():
+    os.makedirs('data/processed', exist_ok=True)
+    os.makedirs('checkpoints', exist_ok=True)
+    
+    # Preprocess data if needed
+    if not os.path.exists('data/processed/train_data.pt'):
+        print("🔹 Preprocessing Data...")
+        preprocess_text('data/data.txt', 'data/processed/train_data.pt', config['vocab_size'])
+    
     # Train the model
     print("🔹 Starting Training...")
     train_model('data/processed/train_data.pt', config['vocab_size'], config)
