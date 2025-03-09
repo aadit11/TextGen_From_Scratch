@@ -10,7 +10,7 @@ def generate_text(model, vocab, seed_text, max_length=50):
     for _ in range(max_length):
         with torch.no_grad():
             output = model(input_seq).squeeze(0)
-            next_token = output.argmax(dim=-1)[-1].item()
+            next_token = output[-1].argmax().item()
             tokens.append(next_token)
             input_seq = torch.tensor(tokens).unsqueeze(0)
 
