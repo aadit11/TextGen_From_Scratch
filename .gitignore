@@ -1,6 +1,50 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Model checkpoints and large data files
 checkpoints/
+*.pth
+*.pt
+*.pkl
+*.h5
+*.ckpt
+*.bin
+*.model
+*.joblib
+*.weights
 
+# Pytorch specific
+*.pth.tar
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environments
+venv/
+env/
+ENV/
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Data directories that might contain large files
 data/processed/
