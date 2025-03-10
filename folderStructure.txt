@@ -34,9 +34,6 @@ transformer-text-generation/
 │   ├── train_log.txt           # Logs from training process
 │   └── checkpoints/            # Saved model checkpoints
 │
-├── notebooks/                  # Jupyter Notebooks for experimentation
-│   └── exploration.ipynb       # Example notebook for data exploration
-│
 ├── requirements.txt            # Project dependencies
 ├── README.md                   # Project documentation
 └── main.py                     # Entry point for training and generation
