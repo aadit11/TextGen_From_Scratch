@@ -41,11 +41,8 @@ if __name__ == "__main__":
     with open('data/processed/train_data.pt', 'rb') as f:
         _, vocab = torch.load(f)
 
-    # Generate text with multiple seed texts
     seed_texts = [
         "Once upon a time",
-        "In the kingdom of",
-        "The war between"
     ]
 
     for seed in seed_texts:
