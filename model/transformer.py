@@ -18,7 +18,6 @@ class TransformerBlock(nn.Module):
         self.norm2 = nn.LayerNorm(d_model)
 
     def forward(self, x):
-        # Fixed to correctly add attn_output to x
         attn_output = self.attention(x, x, x)
         x = self.norm1(x + attn_output)
         ffn_output = self.ffn(x)
@@ -36,7 +35,6 @@ class Transformer(nn.Module):
         self.d_model = d_model
 
     def forward(self, x):
-        # Calculate embeddings and add positional encoding
         x = self.embedding(x) * math.sqrt(self.d_model)
         x = self.pos_encoding(x)
         

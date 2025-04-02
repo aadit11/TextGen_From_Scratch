@@ -10,7 +10,6 @@ def train_model(data_path, vocab_size, config):
     optimizer = optim.Adam(model.parameters(), lr=config['lr'])
     criterion = torch.nn.CrossEntropyLoss()
 
-    # Create checkpoints directory if it doesn't exist
     os.makedirs(os.path.dirname(config['checkpoint_path']), exist_ok=True)
 
     for epoch in range(config['epochs']):
