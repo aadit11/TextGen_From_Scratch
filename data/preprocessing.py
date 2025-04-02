@@ -2,7 +2,7 @@ import torch
 from utils.tokenizer import build_vocab, tokenize
 import os
 
-def preprocess_text(input_file, output_file, vocab_size=5000, seq_length=64, encoding='utf-8'):
+def preprocess_text(input_file, output_file, vocab_size=50000, seq_length=64, encoding='utf-8'):
     try:
         with open(input_file, 'r', encoding=encoding) as file:
             text = file.read().lower()
