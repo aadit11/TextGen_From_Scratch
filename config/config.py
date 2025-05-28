@@ -1,3 +1,6 @@
+"""
+Configuration settings for the text generation model.
+"""
 config = {
     'epochs': 50,
     'batch_size': 32,

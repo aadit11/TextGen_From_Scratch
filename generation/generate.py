@@ -1,8 +1,37 @@
+"""
+Text generation module using a trained transformer model.
+
+This module provides functionality to generate text using a trained transformer model.
+It includes utilities for text generation with temperature-based sampling and
+handles the loading and initialization of the model and vocabulary.
+"""
+
 import torch
 from model.transformer import Transformer
 from utils.tokenizer import tokenize, detokenize
 
 def generate_text(model, vocab, seed_text, max_length=50, temperature=1.0):
+    """
+    Generates text using a trained transformer model with temperature-based sampling.
+
+    The function takes a seed text and generates a sequence of tokens by:
+    1. Tokenizing the input seed text
+    2. Iteratively predicting the next token using the model
+    3. Sampling from the probability distribution with temperature scaling
+    4. Converting the generated tokens back to text
+
+    Args:
+        model (Transformer): The trained transformer model
+        vocab (dict): Vocabulary mapping tokens to indices
+        seed_text (str): Initial text to start generation from
+        max_length (int, optional): Maximum number of tokens to generate. Defaults to 50
+        temperature (float, optional): Controls randomness in generation. 
+            Higher values (e.g., 1.0) make output more random, 
+            lower values (e.g., 0.5) make it more focused. Defaults to 1.0
+
+    Returns:
+        str: The generated text, including the seed text
+    """
     model.eval()
     tokens = tokenize(seed_text, vocab)
     input_seq = torch.tensor(tokens).unsqueeze(0)

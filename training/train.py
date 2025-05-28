@@ -1,3 +1,12 @@
+"""
+Training module for the transformer model.
+
+This module implements the training loop for the transformer model, handling
+data loading, model initialization, optimization, and checkpointing. It includes
+utilities for training the model on preprocessed text data and saving the
+trained model weights.
+"""
+
 import torch
 import torch.optim as optim
 import os
@@ -5,6 +14,38 @@ from model.transformer import Transformer
 from utils.tokenizer import detokenize
 
 def train_model(data_path, vocab_size, config):
+    """
+    Train the transformer model on the provided data.
+
+    This function implements the training loop for the transformer model, which:
+    1. Loads preprocessed data and vocabulary
+    2. Initializes the transformer model
+    3. Sets up the optimizer and loss function
+    4. Trains the model for the specified number of epochs
+    5. Saves the model checkpoint after training
+
+    The training process:
+    - Processes data in batches
+    - Uses teacher forcing (input sequence is shifted by one position for targets)
+    - Computes cross-entropy loss between model predictions and targets
+    - Updates model parameters using backpropagation
+    - Tracks and reports average loss per epoch
+
+    Args:
+        data_path (str): Path to the preprocessed training data (.pt file)
+        vocab_size (int): Size of the vocabulary
+        config (dict): Configuration dictionary containing:
+            - d_model (int): Model dimension
+            - n_heads (int): Number of attention heads
+            - d_ff (int): Feed-forward network dimension
+            - n_layers (int): Number of transformer layers
+            - lr (float): Learning rate
+            - epochs (int): Number of training epochs
+            - checkpoint_path (str): Path to save the model checkpoint
+
+    Returns:
+        None: The trained model is saved to the checkpoint path specified in config
+    """
     data, vocab = torch.load(data_path)
     model = Transformer(vocab_size, config['d_model'], config['n_heads'], config['d_ff'], config['n_layers'])
     optimizer = optim.Adam(model.parameters(), lr=config['lr'])
